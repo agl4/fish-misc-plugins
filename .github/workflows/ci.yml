@@ -15,5 +15,5 @@ jobs:
         run: |
           curl -sL https://git.io/fisher | source
           fisher install $GITHUB_WORKSPACE
-          bind --user | string match --entire __fzf
+          bind --user | string match --entire __cdp ; and bind --user | string match --entire __pooldir
         shell: fish {0}
