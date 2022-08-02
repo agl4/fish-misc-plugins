@@ -4,6 +4,6 @@ function __cdp_select_project --description 'List projects directories.'
         -name .git \
         | grep -v straight \
         | sed 's/\/\.git$//' \
-        | fzf --no-color --tac --no-sort --exact)
+        | eval "fzf --no-multi $CDP_FZF_OPTIONS")
     echo $dir
 end

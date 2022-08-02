@@ -7,7 +7,7 @@ function __pooldir -d "Get or create pooldir"
 
     set -l subdir
     set -l query
-    command find "$POOLDIR_ROOT" "$depth_option" 1 -type d | fzf --no-multi --no-color --sort --exact --print-query \
+    command find "$POOLDIR_ROOT" "$depth_option" 1 -type d | eval "fzf --no-multi --print-query $POOLDIR_FZF_OPTIONS" \
         | while read -l r
         # store the query
         if test -z "$query"
