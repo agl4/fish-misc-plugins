@@ -2,7 +2,7 @@ function __pooldir -d "Get or create pooldir"
     set -q POOLDIR_ROOT; or set -U POOLDIR_ROOT "$HOME/share/pool2"
     set -l depth_option -depth
     if test (uname -s) = Linux
-        set -l depth_option -maxdepth
+        set depth_option -maxdepth
     end
 
     set -l subdir
