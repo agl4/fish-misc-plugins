@@ -28,7 +28,7 @@ function __pooldir -d "Get or create pooldir"
         if test -d $query
             # In this case there was a valid result but no query was typed in,
             # possibly because of arrow-key selecting in results.
-            commandline -it -- (string trim "$subdir")
+            commandline -it -- (string trim "$query")
         else
             # Here query was typed in, but no directories matched, so create
             # one.
