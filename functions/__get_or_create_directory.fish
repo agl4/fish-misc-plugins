@@ -1,5 +1,10 @@
-function __pooldir -d "Get or create pooldir"
-    set -q POOLDIR_ROOT; or set -U POOLDIR_ROOT "$HOME/share/pool2"
+function __get_or_create_directory -d "Get or create a directory in root `--directory'."
+    argparse 'd/directory=' 'm/maxdepth=' -- $argv
+
+    set -q _flag_directory; or return 1 # this is required
+    set -q _flag_maxdepth; or set -l _flag_maxdepth 1
+
+    # make find command work on both platforms correctly
     set -l depth_option -depth
     if test (uname -s) = Linux
         set depth_option -maxdepth
@@ -7,7 +12,7 @@ function __pooldir -d "Get or create pooldir"
 
     set -l subdir
     set -l query
-    command find "$POOLDIR_ROOT" "$depth_option" 1 -type d | eval "fzf --no-multi --print-query $POOLDIR_FZF_OPTIONS" \
+    command find "$_flag_directory" "$depth_option" "$_flag_maxdepth" -type d | eval "fzf --no-multi --print-query $POOLDIR_FZF_OPTIONS" \
         | while read -l r
         # store the query
         if test -z "$query"
@@ -33,7 +38,7 @@ function __pooldir -d "Get or create pooldir"
             # Here query was typed in, but no directories matched, so create
             # one.
             set -l basedir (string trim "$query" | sed 's/[^[a-z0-9]/-/ig')
-            set -l fulldir $POOLDIR_ROOT/(date +%Y%m%d)-$basedir
+            set -l fulldir $_flag_directory/(date +%Y%m%d)-$basedir
             mkdir -p (string trim "$fulldir")
             commandline -it -- (string trim "$fulldir")
         end
