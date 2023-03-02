@@ -1,7 +1,6 @@
-function __get_or_create_directory -d "Get or create a directory in root `--directory'."
-    argparse 'd/directory=' 'm/maxdepth=' -- $argv
+function __get_or_create_directory -d "Get or create a directory in root '$argv'."
+    argparse 'm/maxdepth=' -- $argv
 
-    set -q _flag_directory; or return 1 # this is required
     set -q _flag_maxdepth; or set -l _flag_maxdepth 1
 
     # make find command work on both platforms correctly
@@ -12,7 +11,7 @@ function __get_or_create_directory -d "Get or create a directory in root `--dire
 
     set -l subdir
     set -l query
-    command find "$_flag_directory" "$depth_option" "$_flag_maxdepth" -type d | eval "fzf --no-multi --print-query $POOLDIR_FZF_OPTIONS" \
+    command find $argv "$depth_option" "$_flag_maxdepth" -type d | eval "fzf --no-multi --print-query $POOLDIR_FZF_OPTIONS" \
         | while read -l r
         # store the query
         if test -z "$query"
@@ -38,7 +37,7 @@ function __get_or_create_directory -d "Get or create a directory in root `--dire
             # Here query was typed in, but no directories matched, so create
             # one.
             set -l basedir (string trim "$query" | sed 's/[^[a-z0-9]/-/ig')
-            set -l fulldir $_flag_directory/(date +%Y%m%d)-$basedir
+            set -l fulldir $argv[1]/(date +%Y%m%d)-$basedir
             mkdir -p (string trim "$fulldir")
             commandline -it -- (string trim "$fulldir")
         end
