@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.0](https://github.com/agoloncser/fish-misc-plugins/compare/v1.0.2...v2.0.0) (2023-03-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* Add support to multiple pooldirs
+* Generalize __pooldir function
+
+### Features
+
+* Add support to multiple pooldirs ([c10ac01](https://github.com/agoloncser/fish-misc-plugins/commit/c10ac0136cefc1eb2824e965515fbf27f502a138))
+* Generalize __pooldir function ([0cd5a84](https://github.com/agoloncser/fish-misc-plugins/commit/0cd5a84dc33ee1b0e36cf70d4834fdc1b454dbce))
+
 ## [1.0.2](https://github.com/agoloncser/fish-misc-plugins/compare/v1.0.1...v1.0.2) (2022-08-25)
 
 
