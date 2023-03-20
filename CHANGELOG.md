@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/agoloncser/fish-misc-plugins/compare/v2.0.0...v2.0.1) (2023-03-20)
+
+
+### Bug Fixes
+
+* Fix Linux find command incorrectly showing directories ([935982f](https://github.com/agoloncser/fish-misc-plugins/commit/935982fb43bd15fda2abcc3543891a36224bf5e4))
+
 ## [2.0.0](https://github.com/agoloncser/fish-misc-plugins/compare/v1.0.2...v2.0.0) (2023-03-02)
 
 
