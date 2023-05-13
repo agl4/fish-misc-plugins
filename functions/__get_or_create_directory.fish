@@ -1,6 +1,7 @@
 function __get_or_create_directory -d "Get or create a directory in root '$argv'."
     argparse 'm/maxdepth=' -- $argv
 
+    set -q TMPDIR; or set -l TMPDIR /tmp/
     set -q _flag_maxdepth; or set -l _flag_maxdepth 1
 
     # make find command work on both platforms correctly
