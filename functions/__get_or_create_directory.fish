@@ -12,7 +12,7 @@ function __get_or_create_directory -d "Get or create a directory in root '$argv'
 
     set -l subdir
     set -l query
-    command find $argv -mindepth 1 "$depth_option" "$_flag_maxdepth" -type d | eval "fzf --no-multi --print-query $POOLDIR_FZF_OPTIONS" \
+    command find $argv -mindepth 1 "$depth_option" "$_flag_maxdepth" -type d | sort -n | eval "fzf --no-multi --print-query $POOLDIR_FZF_OPTIONS" \
         | while read -l r
         # store the query
         if test -z "$query"
