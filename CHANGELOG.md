@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/agoloncser/fish-misc-plugins/compare/v2.0.1...v2.0.2) (2023-09-11)
+
+
+### Bug Fixes
+
+* Sort directories ([c1d6286](https://github.com/agoloncser/fish-misc-plugins/commit/c1d6286952d9951b2d986638ac51b06c08963d0a))
+
 ## [2.0.1](https://github.com/agoloncser/fish-misc-plugins/compare/v2.0.0...v2.0.1) (2023-03-20)
 
 
